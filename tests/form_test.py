@@ -1,8 +1,11 @@
 import time
-from pages.form_page import FormPage
+from pages.main_page import MainPage
 
 
 class TestFormPage:
     def test_form(self, driver):
-        form_page = FormPage(driver, "https://www.wildberries.ru/")
-        form_page.open()
+        main_page = MainPage(driver, "https://www.wildberries.ru/")
+        main_page.open()
+
+        main_page.open_sport_category()
+        time.sleep(5)
