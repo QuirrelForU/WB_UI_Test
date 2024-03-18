@@ -12,7 +12,7 @@ class BasePage:
 
     def open(self):
         self.driver.get(self.url)
-        time.sleep(5)
+        time.sleep(3)
 
     def element_is_visible(self, locator, timeout=5):
         return Wait(self.driver, timeout).until(EC.visibility_of_element_located(locator))

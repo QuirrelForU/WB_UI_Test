@@ -1,3 +1,4 @@
 [
-  "tests/form_test.py::TestFormPage::test_form"
+  "tests/form_test.py::TestFormPage::test_form",
+  "tests/form_test.py::TestMainPage::test_sport_nav"
 ]
