@@ -28,6 +28,8 @@ class TablePage(BasePage):
         By.XPATH, "/html/body/div[1]/main/div[2]/div/div[2]/div/div[4]/div/div/div/div/div[1]/div[3]/div/div[1]/ul/li")
 
     LOCATOR_ADD_TO_BASKET_BUTTONS = (By.CLASS_NAME, "product-card__add-basket")
+    LOCATOR_BASKET_BUTTON = (By.CSS_SELECTOR, 'a.navbar-pc__link[data-wba-header-name="Cart"]')
+
     def apply_sort_rules(self):
         sort_rules = self.element_is_visible(self.LOCATOR_SORT_RULES_BUTTON)
         sort_rules.click()
@@ -63,8 +65,13 @@ class TablePage(BasePage):
             categories_list = [element for element in categories_list if element != random_element]
         return selected_categories
 
-    def add_item_to_basket(self):
-        print('starttest')
+    def add_item_to_basket(self, count=2):
         buy_buttons = self.elements_are_visible(self.LOCATOR_ADD_TO_BASKET_BUTTONS)
-        for b in buy_buttons:
-            print(b.text)
+        for _ in range(count):
+            random_buy_button = random.choice(buy_buttons)
+            buy_buttons.remove(random_buy_button)
+            random_buy_button.click()
+
+    def open_basket(self):
+        basket_button = self.element_is_visible(self.LOCATOR_BASKET_BUTTON)
+        basket_button.click()
