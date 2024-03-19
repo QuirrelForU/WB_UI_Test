@@ -14,11 +14,13 @@ class BasePage:
     def open(self):
         self.driver.get(self.url)
         time.sleep(2)
-        #Wait(self.driver, 5).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
-
+        # Wait(self.driver, 5).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
 
     def element_is_visible(self, locator, timeout=5):
         return Wait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
 
     def elements_are_visible(self, locator, timeout=5):
         return Wait(self.driver, timeout).until(EC.visibility_of_all_elements_located(locator))
+
+    def element_is_visible_relative(self, locator, parent_element, timeout=5):
+        return Wait(self.driver, timeout).until(EC.visibility_of_element_located(locator), parent_element)
