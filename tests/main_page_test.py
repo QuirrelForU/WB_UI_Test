@@ -47,6 +47,14 @@ class TestMainPage:
         current_url = driver.current_url
         assert "search.aspx?search=Чай" in current_url
 
+    def test_search_item_enter_empty(self, driver):
+        default_url = "https://www.wildberries.ru/"
+        main_page = MainPage(driver, default_url)
+        main_page.open()
+        main_page.search_item_enter("")
+        current_url = driver.current_url
+        assert default_url == current_url
+
     def test_search_item_button(self, driver):
         main_page = MainPage(driver, "https://www.wildberries.ru/")
         main_page.open()

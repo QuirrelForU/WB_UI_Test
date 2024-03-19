@@ -1,4 +1,5 @@
 [
+  "tests/filters_test.py::TestMainPage::test_set_category",
   "tests/filters_test.py::TestMainPage::test_set_sort_rule",
   "tests/form_test.py::TestFormPage::test_form",
   "tests/form_test.py::TestMainPage::test_open_books_category",
