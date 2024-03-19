@@ -45,3 +45,18 @@ class TablePage(BasePage):
         random_keyword = random_element.text.split('\u2002')[0]
         random_element.click()
         return self.CATEGORIES[random_keyword]
+
+    def choose_multiply_categories(self):
+        category_button = self.element_is_visible(self.LOCATOR_CATEGORY_BUTTON)
+        category_button.click()
+        categories_list = self.elements_are_visible(self.LOCATOR_CATEGORY_LIST)
+
+        selected_categories = []
+        random_numbers_of_categories = random.randint(2, len(self.CATEGORIES))
+        for _ in range(random_numbers_of_categories):
+            random_element = random.choice(categories_list)
+            random_keyword = random_element.text.split('\u2002')[0]
+            random_element.click()
+            selected_categories.append(self.CATEGORIES[random_keyword])
+            categories_list = [element for element in categories_list if element != random_element]
+        return selected_categories
