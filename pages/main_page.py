@@ -66,3 +66,11 @@ class MainPage(BasePage):
         search_bar.send_keys(search_input)
         search_button = self.element_is_visible(self.LOCATOR_SEARCH_APPLY_BUTTON)
         search_button.click()
+
+    def search_clear_button(self):
+        search_bar = self.element_is_visible(self.LOCATOR_SEARCH_INPUT)
+        search_bar.clear()
+        search_bar.send_keys('Test string that will be deleted in test')
+        search_clear_button = self.element_is_visible(self.LOCATOR_SEARCH_CLEAR_BUTTON)
+        search_clear_button.click()
+        return search_bar.get_attribute("value")
