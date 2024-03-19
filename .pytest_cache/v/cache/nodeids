@@ -5,6 +5,7 @@
   "tests/filters_test.py::TestMainPage::test_set_categories[3-3]",
   "tests/filters_test.py::TestMainPage::test_set_category",
   "tests/filters_test.py::TestMainPage::test_set_sort_rule",
+  "tests/filters_test.py::TestTableShopPage::test_add_to_basket",
   "tests/form_test.py::TestFormPage::test_form",
   "tests/form_test.py::TestMainPage::test_open_books_category",
   "tests/form_test.py::TestMainPage::test_open_furniture_category",

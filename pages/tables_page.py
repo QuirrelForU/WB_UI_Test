@@ -19,6 +19,7 @@ class TablePage(BasePage):
 
     LOCATOR_SORT_RULES_BUTTON = (By.CSS_SELECTOR, 'button.dropdown-filter__btn.dropdown-filter__btn--sorter')
     LOCATOR_CATALOG_BUTTON = (By.CSS_SELECTOR, 'button.nav-element__burger')
+
     LOCATOR_SORT_RULES_OPTIONS = (
         By.XPATH, "/html/body/div[1]/main/div[2]/div/div[2]/div/div[4]/div/div/div/div/div[1]/div[2]/div/div/ul/li")
     LOCATOR_CATEGORY_BUTTON = (
@@ -26,6 +27,7 @@ class TablePage(BasePage):
     LOCATOR_CATEGORY_LIST = (
         By.XPATH, "/html/body/div[1]/main/div[2]/div/div[2]/div/div[4]/div/div/div/div/div[1]/div[3]/div/div[1]/ul/li")
 
+    LOCATOR_ADD_TO_BASKET_BUTTONS = (By.CLASS_NAME, "product-card__add-basket")
     def apply_sort_rules(self):
         sort_rules = self.element_is_visible(self.LOCATOR_SORT_RULES_BUTTON)
         sort_rules.click()
@@ -60,3 +62,9 @@ class TablePage(BasePage):
             selected_categories.append(self.CATEGORIES[random_keyword])
             categories_list = [element for element in categories_list if element != random_element]
         return selected_categories
+
+    def add_item_to_basket(self):
+        print('starttest')
+        buy_buttons = self.elements_are_visible(self.LOCATOR_ADD_TO_BASKET_BUTTONS)
+        for b in buy_buttons:
+            print(b.text)
