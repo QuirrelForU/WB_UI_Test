@@ -33,3 +33,14 @@ class TestBasketPage:
         basket_page.item_plus(count := 3)
         basket_page.item_minus()
         assert int(basket_page.get_items_count()) == count
+
+    def test_delete_item_from_basket(self, driver):
+        table_page = TablePage(driver, "https://www.wildberries.ru/catalog/mebel/mebel-dlya-kuhni/stoly")
+        table_page.open()
+        table_page.add_item_to_basket()
+        time.sleep(1)
+        basket_page = BasketPage(driver, "https://www.wildberries.ru/lk/basket")
+        basket_page.open()
+        basket_page.item_delete()
+        basket_empty = basket_page.is_basket_empty()
+        assert basket_empty == True

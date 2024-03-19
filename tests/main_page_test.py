@@ -1,6 +1,7 @@
 import time
 from pages.main_page import MainPage
 import pytest
+from urllib.parse import unquote
 
 
 class TestMainPage:
@@ -45,6 +46,7 @@ class TestMainPage:
         main_page.search_item_enter("Чай")
         # time.sleep(5)
         current_url = driver.current_url
+        current_url = unquote(current_url, encoding="utf-8")
         assert "search.aspx?search=Чай" in current_url
 
     def test_search_item_enter_empty(self, driver):
@@ -59,8 +61,9 @@ class TestMainPage:
         main_page = MainPage(driver, "https://www.wildberries.ru/")
         main_page.open()
         main_page.search_item_button("Чай")
-        # time.sleep(5)
+        # time.sleep(10)
         current_url = driver.current_url
+        current_url = unquote(current_url, encoding="utf-8")
         assert "search.aspx?search=Чай" in current_url
 
     def test_search_clear_button(self, driver):

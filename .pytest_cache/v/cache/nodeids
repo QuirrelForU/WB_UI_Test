@@ -1,5 +1,8 @@
 [
+  "tests/basket_test.py::TestBasketPage::test_add_to_basket",
+  "tests/basket_test.py::TestBasketPage::test_delete_item_from_basket",
   "tests/basket_test.py::TestBasketPage::test_item_plus_in_basket",
+  "tests/basket_test.py::TestBasketPage::test_item_plus_minus_in_basket",
   "tests/basket_test.py::TestBasketPage::test_open_basket",
   "tests/filters_test.py::TestMainPage::test_set_categories",
   "tests/filters_test.py::TestMainPage::test_set_categories[1-3]",
@@ -8,6 +11,9 @@
   "tests/filters_test.py::TestMainPage::test_set_category",
   "tests/filters_test.py::TestMainPage::test_set_sort_rule",
   "tests/filters_test.py::TestTableShopPage::test_add_to_basket",
+  "tests/filters_test.py::TestTableShopPage::test_set_categories",
+  "tests/filters_test.py::TestTableShopPage::test_set_category",
+  "tests/filters_test.py::TestTableShopPage::test_set_sort_rule",
   "tests/form_test.py::TestFormPage::test_form",
   "tests/form_test.py::TestMainPage::test_open_books_category",
   "tests/form_test.py::TestMainPage::test_open_furniture_category",
@@ -17,5 +23,14 @@
   "tests/form_test.py::TestMainPage::test_search_clear_button",
   "tests/form_test.py::TestMainPage::test_search_item_button",
   "tests/form_test.py::TestMainPage::test_search_item_enter",
-  "tests/form_test.py::TestMainPage::test_sport_nav"
+  "tests/form_test.py::TestMainPage::test_sport_nav",
+  "tests/main_page_test.py::TestMainPage::test_open_books_category",
+  "tests/main_page_test.py::TestMainPage::test_open_furniture_category",
+  "tests/main_page_test.py::TestMainPage::test_open_house_category",
+  "tests/main_page_test.py::TestMainPage::test_open_shoes_category",
+  "tests/main_page_test.py::TestMainPage::test_open_sport_category",
+  "tests/main_page_test.py::TestMainPage::test_search_clear_button",
+  "tests/main_page_test.py::TestMainPage::test_search_item_button",
+  "tests/main_page_test.py::TestMainPage::test_search_item_enter",
+  "tests/main_page_test.py::TestMainPage::test_search_item_enter_empty"
 ]

@@ -9,6 +9,8 @@ class BasketPage(BasePage):
     LOCATOR_ITEM_COUNT_HEADER = (By.CSS_SELECTOR, 'h1.basket-section__header')
     LOCATOR_ITEM_PLUS = (By.CLASS_NAME, "count__plus")
     LOCATOR_ITEM_MINUS = (By.CLASS_NAME, "count__minus")
+    LOCATOR_ITEM_DELETE = (By.CLASS_NAME, "btn__del")
+    LOCATOR_BASKET_EMPTY_TITLE = (By.CLASS_NAME, "basket-empty__title")
 
     def get_items_count(self):
         header_element = self.element_is_visible(self.LOCATOR_ITEM_COUNT_HEADER)
@@ -26,4 +28,15 @@ class BasketPage(BasePage):
             item_minus_button.click()
 
     def item_delete(self):
-        pass
+        # item_delete_button = self.element_is_visible(self.LOCATOR_ITEM_DELETE)
+        item_delete_button = self.driver.find_element(By.CLASS_NAME, "btn__del")
+        item_delete_button.click()
+
+    def is_basket_empty(self):
+        try:
+            self.element_is_visible(self.LOCATOR_BASKET_EMPTY_TITLE)
+            is_element_present = True
+        except:
+            is_element_present = False
+        finally:
+            return is_element_present
