@@ -65,7 +65,7 @@ class TablePage(BasePage):
             categories_list = [element for element in categories_list if element != random_element]
         return selected_categories
 
-    def add_item_to_basket(self, count=2):
+    def add_item_to_basket(self, count=1):
         buy_buttons = self.elements_are_visible(self.LOCATOR_ADD_TO_BASKET_BUTTONS)
         for _ in range(count):
             random_buy_button = random.choice(buy_buttons)
