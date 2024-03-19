@@ -16,6 +16,9 @@ class MainPage(BasePage):
     LOCATOR_BOOKS_CATEGORY_LINK = (By.XPATH, "//a[contains(@class, 'menu-burger__main-list-link--519')]")
 
     LOCATOR_SEARCH_INPUT = (By.ID, "searchInput")
+    LOCATOR_SEARCH_APPLY_BUTTON = (By.ID, "applySearchBtn")
+    LOCATOR_SEARCH_CLEAR_BUTTON = (By.CLASS_NAME, "search-catalog__btn--clear")
+
     def open_sport_category(self):
         catalog_button = self.element_is_visible(self.LOCATOR_CATALOG_BUTTON)
         catalog_button.click()
@@ -53,6 +56,13 @@ class MainPage(BasePage):
 
     def search_item_enter(self, search_input):
         search_bar = self.element_is_visible(self.LOCATOR_SEARCH_INPUT)
-        search_bar.clear()  # Очистка поля ввода перед вводом нового запроса
+        search_bar.clear()
         search_bar.send_keys(search_input)
         search_bar.send_keys(Keys.ENTER)
+
+    def search_item_button(self, search_input):
+        search_bar = self.element_is_visible(self.LOCATOR_SEARCH_INPUT)
+        search_bar.clear()
+        search_bar.send_keys(search_input)
+        search_button = self.element_is_visible(self.LOCATOR_SEARCH_APPLY_BUTTON)
+        search_button.click()
